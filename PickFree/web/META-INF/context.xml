@@ -1,2 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Context antiJARLocking="true" path="/PickFree"/>
+<Context antiJARLocking="true" path="/PickFree">
+    <Resource name="jdbc/pickfreedb" auth="Container" type="javax.sql.DataSource"
+               maxTotal="100" maxIdle="30" maxWaitMillis="10000"
+               username="admin" password="admin" driverClassName="com.mysql.jdbc.Driver"
+               url="jdbc:mysql://localhost:3306/pickfreedb"/>
+
+</Context>
