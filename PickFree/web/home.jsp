@@ -25,14 +25,7 @@ SELECT DISTINCT functionality FROM software
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
-    <!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/jquery.dropotron.min.js"></script>
-    <script src="js/jquery.scrolly.min.js"></script>
-    <script src="js/jquery.scrollgress.min.js"></script>
-    <script src="js/skel.min.js"></script>
-    <script src="js/skel-layers.min.js"></script>
-    <script src="js/init.js"></script>
+   
     <noscript>
         <link rel="stylesheet" href="css/skel.css" />
 	<link rel="stylesheet" href="css/style.css" />
@@ -50,8 +43,13 @@ SELECT DISTINCT functionality FROM software
     <nav id="nav">
         <ul>
             <li class="current"><a href="home.jsp">Home</a></li>
+            <li>
+                <a href="#" class="submenu">Contribute</a>
+                    <ul>
+                        <li><a href='#'>Log In</a></li>
+                        <li><a href='#'>Sign Up</a></li>
+                    </ul>
             </li>
-            <li><a href="#" class="button special">Contribute</a></li>
         </ul>
     </nav>
 </header>
@@ -89,7 +87,7 @@ appropriate (<br />).
 </section>
 
 
-<form method='GET' action=''>
+<form method='GET' action='PickResults.jsp'>
     
 		<!-- Main -->
 <article id="main">
@@ -103,7 +101,7 @@ appropriate (<br />).
 	<ul class="buttons">
             <c:forEach var="row" items="${osDB.rows}">
                 <li>
-                <input type="radio" id="${row.os}" name="OS">
+                <input type="radio" id="${row.os}" name="os" value="${row.os}">
                 <label for="${row.os}" class="button special fit">${row.os}</label>
                 </li>
             </c:forEach>     
@@ -128,7 +126,7 @@ appropriate (<br />).
 	<ul class="buttons">
             <c:forEach var="row" items="${levelDB.rows}">
                 <li>
-                <input type="radio" id="${row.level}" name="level">
+                <input type="radio" id="${row.level}" name="level" value="${row.level}">
                 <label for="${row.level}" class="button fit">${row.level}</label>
                 </li>
             </c:forEach> 
@@ -153,14 +151,14 @@ appropriate (<br />).
     <ul class="buttons">
         <c:forEach var="row" items="${functionalityDB.rows}">
             <li>
-            <input type="radio" id="${row.functionality}" name="level">
+            <input type="radio" id="${row.functionality}" name="functionality" value="${row.functionality}">
             <label for="${row.functionality}" class="button fit">${row.functionality}</label>
             </li>
         </c:forEach> 
     </ul>
     
     <ul class="buttons">
-           <li><a href="#cta2" class="button fit scrolly">One last step...</a></li>
+           <li><a href="#cta2" class="button special fit scrolly">One last step...</a></li>
     </ul>
         
         
@@ -197,4 +195,12 @@ appropriate (<br />).
 </footer>
 
 </body>
+ <!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.dropotron.min.js"></script>
+    <script src="js/jquery.scrolly.min.js"></script>
+    <script src="js/jquery.scrollgress.min.js"></script>
+    <script src="js/skel.min.js"></script>
+    <script src="js/skel-layers.min.js"></script>
+    <script src="js/init.js"></script>
 </html>
