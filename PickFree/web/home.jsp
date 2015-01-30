@@ -43,13 +43,7 @@ SELECT DISTINCT functionality FROM software
     <nav id="nav">
         <ul>
             <li class="current"><a href="home.jsp">Home</a></li>
-            <li>
-                <a href="#" class="submenu">Contribute</a>
-                    <ul>
-                        <li><a href='#'>Log In</a></li>
-                        <li><a href='#'>Sign Up</a></li>
-                    </ul>
-            </li>
+            <li><a href="Contribute.jsp" class="button special">Contribute</a></li>
         </ul>
     </nav>
 </header>

@@ -3,6 +3,7 @@ package pickfree;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -31,5 +32,10 @@ public class Database {
     public ResultSet runSql(String sql) throws SQLException {
 	Statement sta = conn.createStatement();
 	return sta.executeQuery(sql);
-    }    
+    }
+    
+    public PreparedStatement prepareSql(String sql) throws SQLException {
+        PreparedStatement ps =conn.prepareStatement(sql);
+	return ps;
+    }
 }
