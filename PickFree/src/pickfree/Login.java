@@ -2,7 +2,6 @@
 package pickfree;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import static pickfree.SignUp.md5;
 
 
 public class Login extends HttpServlet {
@@ -20,8 +20,10 @@ public class Login extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+        
         String username = request.getParameter("username");
         String password = request.getParameter("password");
+        password = md5(password);
         
         Database db = (Database) getServletContext().getAttribute("db");
         String sql = "SELECT * FROM users WHERE username=? AND password=?";
@@ -40,7 +42,7 @@ public class Login extends HttpServlet {
                 HttpSession session = request.getSession();
                 session.setAttribute("user", username);
                 
-                RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
+                RequestDispatcher rd = request.getRequestDispatcher("Contribute.jsp");
                 rd.forward(request, response);
             }
             else{
@@ -54,6 +56,7 @@ public class Login extends HttpServlet {
         
         
     }
+
 
  
 }

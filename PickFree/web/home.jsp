@@ -43,6 +43,13 @@ SELECT DISTINCT functionality FROM software
     <nav id="nav">
         <ul>
             <li class="current"><a href="home.jsp">Home</a></li>
+            <c:if test="${sessionScope.user != null}">
+                <li class="current">
+                    <form id="jsform" method="POST" action="SignOut">
+                        <a href="#" onclick="document.getElementById('jsform').submit();"> Sign Out, ${sessionScope.user} </a>
+                    </form>
+                </li>
+            </c:if>
             <li><a href="Contribute.jsp" class="button special">Contribute</a></li>
         </ul>
     </nav>
@@ -51,12 +58,6 @@ SELECT DISTINCT functionality FROM software
 <!-- Banner -->
 <section id="banner">
 
-<!--
-".inner" is set up as an inline-block so it automatically expands
-in both directions to fit whatever's inside it. This means it won't
-automatically wrap lines, so be sure to use line breaks where
-appropriate (<br />).
--->
     <div class="inner">
 
     <header>

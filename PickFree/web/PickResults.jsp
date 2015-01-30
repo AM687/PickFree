@@ -35,7 +35,13 @@ SELECT * FROM software WHERE os='${param.os}' AND level='${param.level}' AND fun
     <nav id="nav">
         <ul>
             <li class="current"><a href="home.jsp">Home</a></li>
-            </li>
+            <c:if test="${sessionScope.user != null}">
+                <li class="current">
+                    <form id="jsform" method="POST" action="SignOut">
+                        <a href="#" onclick="document.getElementById('jsform').submit();"> Sign Out, ${sessionScope.user} </a>
+                    </form>
+                </li>
+            </c:if>
             <li><a href="Contribute.jsp" class="button special">Contribute</a></li>
         </ul>
     </nav>
